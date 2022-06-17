@@ -4,23 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Organic Sphere</title>
+    <title>Kittykat | YouTuber | Your are so Kind</title>
 
     <meta itemprop="name" content="Organic Sphere">
-    <meta itemprop="description" content="Creative WebGL experiment with Three.js">
-    <meta itemprop="image" content="https://organic-sphere.vercel.app/social/share-1200x630.png">
+    <meta itemprop="description" content="We love you so much Kittykat">
+    <meta itemprop="image" content="">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Organic Sphere">
-    <meta name="twitter:description" content="Creative WebGL experiment with Three.js">
-    <meta name="twitter:image" content="https://organic-sphere.vercel.app/social/share-1200x630.png">
+    <meta name="twitter:title" content="Kittykat | YouTuber | Your are so Kind">
+    <meta name="twitter:description" content="We love you so much Kittykat">
+    <meta name="twitter:image" content="">
 
-    <meta property="og:site_name" content="Organic Sphere">
+    <meta property="og:site_name" content="Kittykat | YouTuber | Your are so Kind">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://organic-sphere.vercel.app">
-    <meta property="og:title" content="Organic Sphere">
-    <meta property="og:description" content="Creative WebGL experiment with Three.js">
-    <meta property="og:image" content="https://organic-sphere.vercel.app/social/share-1200x630.png">
+    <meta property="og:title" content="Kittykat | YouTuber | Your are so Kind">
+    <meta property="og:description" content="We love you so much Kittykat">
+    <meta property="og:image" content="">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,11 +29,40 @@
 <body>
     <div class="experience"></div>
     <div class="credits">
-        Organic Sphere by <a href="https://bruno-simon.com" target="_blank">Bruno Simon</a> (<a href="https://github.com/brunosimon/organic-sphere" target="_blank">Source code</a>)
-        <br>Inspired <a href="https://rarible.com/token/0xd07dc4262bcdbf85190c01c996b4c06a461d2430:300573:0xbcfba32709f59838121c0007dc1ca6e8b7432011?tab=owners" target="_blank">Alien Ripple</a> by <a href="https://rarible.com/drawfish" target="_blank">Drawfish</a>
+        <button onclick="location.href='https://youtube.com/c/KittyKatOfficial'" class="btn btn--light">
+            <span class="btn__inner">
+              <span class="btn__slide"></span>
+              <span id="subscriberCount" class="btn__content"> </span>
+            </span>
+          </button><br>
+        Website by <a href="https://www.youtube.com/c/KittyKatOfficial" target="_blank">Kittykat</a>
     </div>
-    <div class="title" contenteditable="" spellcheck="false">
-        Organic Sphere
+    <div class="title" contenteditable="false" spellcheck="false">
+        Hello Kittykat
+
+        <script>
+    
+            const APIKey = 'AIzaSyCvF6ehlPoHHU8KIQxUYuW_sNbrMZW5ZEk';
+            const Userid = 'UCSOBT4NFFoSLN1CySl_AFaw';
+            const subscriberCount= document.getElementById('subscriberCount');
+            const viewCount = document.getElementById('viewCount');
+            const videoCount = document.getElementById('videoCount');
+           
+            let getdata = () => {
+                fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${Userid}&key=${APIKey}`)
+                .then(response => {
+                    return response.json()
+                })
+                .then(data => {
+                    console.log(data);
+                    subscriberCount.innerHTML = data["items"][0].statistics.subscriberCount;
+                    viewCount.innerHTML = data["items"][0].statistics.viewCount;
+                    videoCount.innerHTML = data["items"][0].statistics.videoCount;
+                    
+                })
+            }
+           getdata();
+            </script>
     </div>
 </body>
 </html>
