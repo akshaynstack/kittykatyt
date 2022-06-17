@@ -31,6 +31,7 @@ module.exports = {
             // HTML
             {
                 test: /\.(html)$/,
+                exclude: [/node_modules/, require.resolve('./index.html')],
                 use:
                 [
                     'html-loader'
